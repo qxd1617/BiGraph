@@ -1,12 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "object_list.h"
-#include "simple_graph.h"
 #include <string.h>
-
-
-
-
+#include "simple_graph.h"
 
 GraphNode * grh_create_node (char * name){
 
@@ -33,7 +28,6 @@ void grh_delete_graph(ObjectList * graph){
 }
 
 void grh_delete_node(GraphNode * node){
-	GraphNode *ptr;
 	ol_destroy(node->neighbors);
 	free(node);
 }
@@ -56,25 +50,26 @@ GraphNode * grh_find_node_by_name( ObjectList * graph, char * name ){
 
 void grh_print_graph( ObjectList * graph ){
 	Iter *iterator = ol_iterator(graph);
-	while (ol_has_next(iterator)){
-		GraphNode *ptr = ol_next(iterator);
-		printf("%s:", ptr->name);
-		
-		
-	
-		Iter * nIterator = ol_iterator(ptr->neighbors);
-		
-		while (ol_has_next(nIterator)){
-			GraphNode *neighborPtr = ol_next(nIterator);
-			printf(" %s", neighborPtr->name);
-			if (ol_has_next(nIterator)){
-				printf(",");
+	if (ol_has_next(iterator)){
+		printf("Graph: {name: neighbor names list}\n");
+		while (ol_has_next(iterator)){
+			
+			GraphNode *ptr = ol_next(iterator);
+			printf("%s:", ptr->name);
+			Iter * nIterator = ol_iterator(ptr->neighbors);
+			
+			while (ol_has_next(nIterator)){
+				GraphNode *neighborPtr = ol_next(nIterator);
+				printf(" %s", neighborPtr->name);
+				if (ol_has_next(nIterator)){
+					printf(",");
+				}
 			}
+			printf("\n");
+			free(nIterator);
 		}
-		printf("\n");
-		free(nIterator);
+		free(iterator);
 	}
-	free(iterator);
 }
 
 
