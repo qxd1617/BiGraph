@@ -1,0 +1,29 @@
+commit afbeeae778911010d42e29a4079b879704c6da7a
+Author: Quan Dong <qxd1617@cs.rit.edu>
+Date:   Sat Oct 21 18:53:58 2017 -0400
+
+    Added a few more documentation strings.
+
+commit 364f18b555e18cc2b9e2ac71f1189f5e210cc21f
+Author: Quan Dong <qxd1617@cs.rit.edu>
+Date:   Sat Oct 21 18:51:37 2017 -0400
+
+    Added documentation and fixed a minor bug
+    
+    Minor bug was that given no input an iterator would be created but not freed.
+
+commit 7b495aa3a757bf3f833a44c8ab022b93257f33f6
+Author: Quan Dong <qxd1617@cs.rit.edu>
+Date:   Sat Oct 21 18:30:16 2017 -0400
+
+    Changed dependencies to match new specifications
+    
+    Try wasn't compiling properly so I had to #include simple_graph.h
+
+commit b508915c828dcdcccf74a42943288349f9bab01e
+Author: Quan Dong <qxd1617@cs.rit.edu>
+Date:   Sat Oct 21 18:09:02 2017 -0400
+
+    Got majority of functionality working
+    
+    Still needs documentation and further testing to remove bugs.
